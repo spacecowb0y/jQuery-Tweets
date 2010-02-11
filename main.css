@@ -1,0 +1,58 @@
+body {
+	background:#F1F1F1;
+	color:#888888;
+	font-family:"Calibri", Helvetica, Arial, sans-serif;
+	font-size:13px;
+	text-shadow:1px 1px 0 #FFFFFF;
+}
+
+a { 
+	color:#e8771a; 
+	text-decoration:none; 
+}
+
+small a { font-size:14px; }
+
+pre {
+	background:#FAFAFA;
+	border:1px solid #e4e4e4;
+	padding:15px 15px 0;
+	width:380px;
+}
+
+#main {
+	margin:60px auto 0;
+	width:420px;
+}
+
+#tweets { 
+	background:#FAFAFA;
+	border:1px solid #e4e4e4;
+	margin:0; 
+	padding:0;
+}
+#tweets li {
+	border-bottom:1px dotted #CCC;
+	list-style:none;
+	padding:5px;
+}
+
+#tweets li:last-child { 
+	border:0; 
+}
+
+.download { 
+	background:#ff9f44;
+	border-radius:6px;
+	color:#FFF;
+	font-size:14px;
+	padding:5px 10px;
+	text-shadow:1px 1px #de822c;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-ms-border-radius:6px;
+}
+
+.download:hover { 
+	background:#eb6a31;
+}
