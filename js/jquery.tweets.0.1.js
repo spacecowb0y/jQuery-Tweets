@@ -27,6 +27,15 @@
 (function($){
 	$.fn.tweets = function(options) {
 		$.ajaxSetup({ cache: true });
+		var linkfyTweet = function linkfyTweet(text){
+			var regexpUrl = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
+			var regexpUser = /[\@]+([A-Za-z0-9-_]+)/gi;
+			var regexpHash = /(?:^| )[\#]+([A-Za-z0-9-_]+)/gi;
+			text = text.replace(regexpUrl,'<a href=\"$1\">$1</a>');
+			text = text.replace(regexpUser,'<a href=\"http://twitter.com/$1\">@$1</a>');
+			text = text.replace(regexpHash,' <a href="http://search.twitter.com/search?q=&tag=$1&lang=all&from='+'a'+'">#$1</a>');
+			return text;
+		};
 		var defaults = {
 			tweets: 5,
 			before: "<li>",
@@ -39,7 +48,8 @@
 		        function(data) {
 		            $.each(data.results, function(i, tweet) {
 		                if(tweet.text !== undefined) {
-		                    $(obj).append(options.before+tweet.text+options.after);
+		                	var avatar = '<a href="http://twitter.com/'+tweet.from_user+'" class="avatar"><img src="' + tweet.profile_image_url + '" /></a>';
+		                    $(obj).append(options.before+avatar+linkfyTweet(tweet.text)+'<div style="clear:both" />'+options.after);
 		                }
 		            });
 		        }

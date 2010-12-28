@@ -41,6 +41,11 @@ pre {
 	border:0; 
 }
 
+#tweets li .avatar{
+	float: left;
+	margin: 0px 10px 0px 0px;
+}
+
 .download { 
 	background:#ff9f44;
 	border-radius:6px;
