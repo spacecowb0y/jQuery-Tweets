@@ -37,7 +37,7 @@
 			var obj = $(this);
 			$.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name='+options.username,
 		        function(data) {
-		            $.each(data.results, function(i, tweet) {
+		            $.each(data, function(i, tweet) {
 		                if(tweet.text !== undefined) {
 		                    $(obj).append(options.before+tweet.text+options.after);
 		                }
