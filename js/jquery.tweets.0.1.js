@@ -35,7 +35,7 @@
 		var options = $.extend(defaults, options);
 		return this.each(function() {
 			var obj = $(this);
-			$.getJSON('http://search.twitter.com/search.json?callback=?&rpp='+options.tweets+'&q=from:'+options.username,
+			$.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name='+options.username,
 		        function(data) {
 		            $.each(data.results, function(i, tweet) {
 		                if(tweet.text !== undefined) {
