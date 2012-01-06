@@ -38,7 +38,7 @@
 		var options = $.extend(defaults, options);
 		return this.each(function() {
 			var obj = $(this);
-			$.getJSON('http://api.twitter.com/1/statuses/"+(options.username==""?"public":"user")+"_timeline.json?callback=?&screen_name='+encodeURIComponent(options.username),
+			$.getJSON('http://api.twitter.com/1/statuses/'+(options.username==""?"public":"user")+'_timeline.json?callback=?&screen_name='+encodeURIComponent(options.username),
 		        function(data) {
 		            $.each(data, function(i, tweet) {
 		                if(tweet.text !== undefined) {
